@@ -1,0 +1,28 @@
+.form {
+    padding: 24px;
+    background: #FBEDC9;
+}
+
+.img {
+    width: 300px;
+    left: 200px;
+    position: absolute;
+    @media only screen and (max-width: 769px) {
+        width: 100px;
+    }
+}
+.error{
+    &-message{
+        color: red;
+        font-size: 12px;
+    }
+}
+
+ion-item {
+    --background: #FBEDC9;
+}
+
+ion-item-group {
+    --background: #FBEDC9;
+    margin-bottom: 20px;
+}

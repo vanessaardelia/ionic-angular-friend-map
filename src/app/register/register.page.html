@@ -1,0 +1,78 @@
+<ion-header [translucent]="true" class="ion-text-center">
+  <ion-toolbar>
+      <ion-title>Friend</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex; margin-top: 30px;">
+    <ion-title color="primary">
+      <strong>Register</strong>
+      <p><strong>daftarkan akun sekarang!</strong></p>
+    </ion-title>
+  </div>
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Nama Depan</ion-label>
+        <ion-input formControlName="namaDepan" class="form-controll" required></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.namaDepan">
+        <div class="error-message" *ngIf="validations_form.get('namaDepan').hasError(validation.type) && (validations_form.get('namaDepan').dirty || validations_form.get('namaDepan').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Nama Belakang</ion-label>
+        <ion-input formControlName="namaBelakang" class="form-controll" required></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.namaBelakang">
+        <div class="error-message" *ngIf="validations_form.get('namaBelakang').hasError(validation.type) && (validations_form.get('namaBelakang').dirty || validations_form.get('namaBelakang').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Password</ion-label>
+        <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Confirm Password</ion-label>
+        <ion-input type="password" formControlName="confirmPassword" class="form-controll" required></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.confirmPassword">
+        <div class="error-message" *ngIf="validations_form.get('confirmPassword').hasError(validation.type) && (validations_form.get('confirmPassword').dirty || validations_form.get('confirmPassword').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </ion-item-group>
+    <ion-item-group style="display: flex;">
+      <ion-checkbox [disabled]="!validations_form.valid" [(ngModel)]="check" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+      <span style="margin-left: 16px;">I agree with all term and conditions</span>
+    </ion-item-group>
+
+    <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Register</ion-button>
+    <ion-button color="danger" class="submit-btn" type="submit" (click)="goToLogin()">Cancel</ion-button>
+  </form>
+</ion-content>

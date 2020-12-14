@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" class="ion-text-center">
+  <ion-toolbar>
+      <ion-title>Friend</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item style="left: 30%;" lines='none'>
+      <ion-avatar style="width: 100px; height: 100px;">
+        <ion-img src="{{ userProfile?.photo }}"></ion-img>
+      </ion-avatar>
+    </ion-item>
+    <ion-label class="ion-text-center" style="padding-top: 20px"><strong>{{ userProfile?.name }}</strong></ion-label>
+    <ion-label class="ion-text-center ion-padding-top">{{ userProfile?.email }}</ion-label>
+    <ion-label class="ion-text-center ion-padding-top">00000019949</ion-label>
+    <ion-item-group style="margin-top: 20px; display: flex; place-content: center;">
+      <ion-button class="btnImage" (click)="edit()">Edit</ion-button>
+      <ion-button color="danger" class="btnImage" (click)="logout()">Logout</ion-button>
+    </ion-item-group>
+  </ion-item-group>
+  <hr>
+  <p class="ion-text-center"><strong>Kesan Pesan</strong></p>
+  <p style="padding: 0px 20px;">Selama mengikuti perkuliahan mobile, banyak yang bisa dipelajari dan recall memory dari pelajaran terkait sebelumnya (thanks to aslab) hehehe. Congrats jd untuk koko2 aslab yang sudah wisuda ^^ good luck di future nanti! </p>
+  <hr>
+  <p class="ion-text-center"><strong>Feeds</strong></p>
+  <ion-item-group style="margin-top: 10px;">
+    <ion-item style="cursor: pointer;" ion-long-press [interval]="800" (pressed)="selectItem(data.id)" *ngFor="let data of lokasi">
+      <ion-avatar slot="start">
+        <img src="/assets/account.svg">
+      </ion-avatar>
+      <p class="title">{{ data.user }} checked-in at {{ data.lokasi }} at {{ data.date.toMillis() | date:'EEEE, MM-dd-yyyy h:mm a' }}</p>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header [translucent]="true" class="ion-text-center">
+  <ion-toolbar>
+      <ion-title>Friend</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map"></div>
+  <ion-button style="position: absolute; bottom: 0px; left: 8px; border-radius: 8px;" color="tertiary" expand="full" *ngIf="!inputField" (click)="inputData()">Check-in location</ion-button>
+  <ion-item-group style="position: absolute; bottom: 0px; left: 8px;" *ngIf="inputField">
+    <form class="form" [formGroup]="validations_form" (ngSubmit)="addLokasi(validations_form.value)">
+      <ion-item>
+        <ion-label position="stacked" color="primary">Lokasi</ion-label>
+        <ion-input style="width: 240px;" type="text" formControlName="lokasi"></ion-input>
+      </ion-item>
+      <ion-button class="submit-btn" color="tertiary" type="submit" [disabled]="!validations_form.valid">Submit</ion-button>
+      <ion-button class="submit-btn" color="danger" type="submit" (click)="resetInput()">Cancel</ion-button>
+    </form>
+  </ion-item-group>
+  <ion-button color="tertiary" style="position: absolute; bottom: 0px; right: 8px; bottom: 180px;" (click)="loadmap()"><ion-icon style="font-size: 18px;" name="locate"></ion-icon></ion-button>
+</ion-content>

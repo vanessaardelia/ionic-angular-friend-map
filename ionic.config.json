@@ -1,0 +1,8 @@
+{
+  "name": "UAS_19949",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

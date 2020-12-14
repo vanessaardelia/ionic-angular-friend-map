@@ -1,0 +1,18 @@
+<ion-header [translucent]="true" class="ion-text-center">
+  <ion-toolbar>
+      <ion-title>Friend</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item style="left: 30%;" lines='none'>
+    <ion-avatar style="width: 100px; height: 100px;" class="proflePic">
+      <ion-img src="{{ photo.userPhoto }}"></ion-img>
+    </ion-avatar>
+    <ion-button class="btnImage" (click)="takePicture()"><ion-icon name="camera"></ion-icon></ion-button>
+  </ion-item>
+  <ion-item-group style="margin-top: 20px; display: flex; place-content: center;">
+    <ion-button (click)="confirmationAlert()">Submit</ion-button>
+    <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
+  </ion-item-group>
+</ion-content>

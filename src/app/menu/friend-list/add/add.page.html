@@ -1,0 +1,29 @@
+<ion-header [translucent]="true" class="ion-text-center">
+  <ion-toolbar>
+      <ion-title>Friend</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex; margin-top: 30px;">
+    <ion-title color="primary">
+      <strong>Cari teman</strong>
+      <p><strong>masukkan nama teman!</strong></p>
+    </ion-title>
+  </div>
+  <ion-item-group style="width: 100%; height: 50%;">
+    <form class="form" [formGroup]="form">
+      <ion-item-group>
+        <ion-item>
+          <ion-label position="stacked">Nama</ion-label>
+          <ion-input type="text" formControlName="nama_teman"></ion-input>
+        </ion-item>
+      </ion-item-group>
+      <ion-button (click)="onSubmit()">Submit</ion-button>
+      <ion-button color="danger" (click)="onCancel()">Cancel</ion-button>
+    </form>
+  </ion-item-group>
+  <ion-item-group>
+    <div style="position: absolute;" #map id="map"></div>
+  </ion-item-group>
+</ion-content>
