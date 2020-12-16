@@ -30,15 +30,15 @@ export class FriendsService {
       if(!this.data_teman.length){ 
         this.presentToast();
       } else {
-          const latitude = this.data_teman[0].latitude_teman
-          const longitude = this.data_teman[0].longitude_teman
-          return this.firestore.doc(`user_friend/${id}`).set({
-            id,
-            user,
-            nama_teman,
-            latitude,
-            longitude
-          });
+        const latitude = this.data_teman[0].latitude_teman
+        const longitude = this.data_teman[0].longitude_teman
+        return this.firestore.doc(`user_friend/${id}`).set({
+          id,
+          user,
+          nama_teman,
+          latitude,
+          longitude
+        });
       }
     });
   }
