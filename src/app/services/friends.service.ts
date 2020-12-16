@@ -23,7 +23,6 @@ export class FriendsService {
   }
 
   addFriend(user: string, nama_teman: string){
-    // var flag: Boolean = false;
     const id = this.firestore.createId();
 
     this.firestore.collection<Friend>('friend').ref.where('nama_teman', '==', nama_teman).get().then((res) => {
@@ -31,10 +30,8 @@ export class FriendsService {
       if(!this.data_teman.length){ 
         this.presentToast();
       } else {
-        // if(flag === false){
           const latitude = this.data_teman[0].latitude_teman
           const longitude = this.data_teman[0].longitude_teman
-          // flag = true;
           return this.firestore.doc(`user_friend/${id}`).set({
             id,
             user,
@@ -42,7 +39,6 @@ export class FriendsService {
             latitude,
             longitude
           });
-        // }
       }
     });
   }

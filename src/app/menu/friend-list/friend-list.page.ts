@@ -26,14 +26,6 @@ export class FriendListPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.authService.getUserData().subscribe(res => {
-    //   this.userProfile = res;
-    //   this.firestore.collection<UserFriend>('user_friend', ref => {
-    //     return ref.where('user', '==', this.userProfile.name);
-    //   }).valueChanges().subscribe(res => {
-    //     this.data_teman = res;
-    //   });
-    // });
   }
 
   ionViewWillEnter() {
